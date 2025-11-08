@@ -1,0 +1,13 @@
+<!ELEMENT preguntados (pregunta*)>
+<!ELEMENT pregunta (categoria, enunciado, opciones, respuesta_correcta, dificultad, fecha_creacion, estado, autor?)>
+<!ATTLIST pregunta id CDATA #REQUIRED>
+<!ELEMENT categoria (#PCDATA)>
+<!ELEMENT enunciado (#PCDATA)>
+<!ELEMENT opciones (opcion+)>
+<!ELEMENT opcion (#PCDATA)>
+<!ATTLIST opcion indice CDATA #REQUIRED>
+<!ELEMENT respuesta_correcta (#PCDATA)>
+<!ELEMENT dificultad (#PCDATA)>
+<!ELEMENT fecha_creacion (#PCDATA)>
+<!ELEMENT estado (#PCDATA)>
+<!ELEMENT autor (#PCDATA)>

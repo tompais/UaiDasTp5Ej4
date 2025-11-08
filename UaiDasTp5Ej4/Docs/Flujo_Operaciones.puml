@@ -1,0 +1,163 @@
+@startuml Flujo_Operaciones_ABM
+
+skinparam backgroundColor #FEFEFE
+skinparam roundcorner 15
+skinparam sequence {
+  ArrowColor #424242
+  ActorBorderColor #424242
+  LifeLineBorderColor #424242
+  ParticipantBorderColor #424242
+  ParticipantBackgroundColor #E3F2FD
+  ActorBackgroundColor #FFE0B2
+}
+
+title Flujo de Operaciones - ABM de Juegos
+
+actor Usuario
+participant "FrmJuegoABM" as Form
+participant "JuegoService" as Service
+participant "JuegoRepository" as Repo
+participant "XmlDataAccess" as XML
+database "Archivo XML" as File
+
+== Cargar Juegos (Inicio) ==
+Usuario -> Form : Abre formulario
+activate Form
+Form -> Service : ObtenerTodosLosJuegos()
+activate Service
+Service -> Repo : ObtenerTodos()
+activate Repo
+Repo -> XML : CargarJuegos(ruta)
+activate XML
+XML -> File : Leer archivo
+File --> XML : datos XML
+XML --> Repo : List<Juego>
+deactivate XML
+Repo --> Service : IEnumerable<Juego>
+deactivate Repo
+Service --> Form : Lista de juegos
+deactivate Service
+Form --> Usuario : Muestra lista
+deactivate Form
+
+== Crear Nuevo Juego ==
+Usuario -> Form : Clic "Nuevo"
+activate Form
+Form -> Form : LimpiarFormulario()
+Form --> Usuario : Formulario limpio
+Usuario -> Form : Ingresa datos
+Usuario -> Form : Clic "Guardar"
+Form -> Service : CrearJuego(juego)
+activate Service
+Service -> Service : ValidarJuego(juego)
+alt Validación exitosa
+  Service -> Repo : Agregar(juego)
+  activate Repo
+  Repo -> Repo : GenerarNuevoId()
+  Repo -> Repo : AsignarIdsPreguntasYOpciones()
+  Repo --> Service : OK
+  Service -> Repo : Guardar()
+  Repo -> XML : GuardarJuegos(juegos, ruta)
+  activate XML
+  XML -> File : Escribir XML
+  File --> XML : OK
+  XML --> Repo : OK
+  deactivate XML
+  Repo --> Service : OK
+  deactivate Repo
+  Service --> Form : OK
+  deactivate Service
+  Form -> Form : MostrarExito()
+  Form -> Form : CargarJuegos()
+else Validación fallida
+  Service --> Form : Exception
+  deactivate Service
+  Form -> Form : MostrarError()
+end
+deactivate Form
+
+== Actualizar Juego ==
+Usuario -> Form : Selecciona juego
+activate Form
+Form -> Form : MostrarDatosJuego()
+Form --> Usuario : Muestra datos
+Usuario -> Form : Modifica datos
+Usuario -> Form : Clic "Guardar"
+Form -> Service : ActualizarJuego(juego)
+activate Service
+Service -> Service : ValidarJuego(juego)
+alt Validación exitosa
+  Service -> Repo : Actualizar(juego)
+  activate Repo
+  Repo -> Repo : AsignarIdsPreguntasYOpciones()
+  Repo --> Service : OK
+  Service -> Repo : Guardar()
+  Repo -> XML : GuardarJuegos(juegos, ruta)
+  activate XML
+  XML -> File : Escribir XML
+  XML --> Repo : OK
+  deactivate XML
+  Repo --> Service : OK
+  deactivate Repo
+  Service --> Form : OK
+  deactivate Service
+  Form -> Form : MostrarExito()
+  Form -> Form : CargarJuegos()
+else Validación fallida
+  Service --> Form : Exception
+  deactivate Service
+  Form -> Form : MostrarError()
+end
+deactivate Form
+
+== Eliminar Juego ==
+Usuario -> Form : Selecciona juego
+activate Form
+Usuario -> Form : Clic "Eliminar"
+Form -> Form : Confirmar()
+Usuario --> Form : Confirma
+Form -> Service : EliminarJuego(id)
+activate Service
+Service -> Repo : Eliminar(id)
+activate Repo
+Repo -> Repo : Buscar y remover juego
+Repo --> Service : OK
+Service -> Repo : Guardar()
+Repo -> XML : GuardarJuegos(juegos, ruta)
+activate XML
+XML -> File : Escribir XML
+XML --> Repo : OK
+deactivate XML
+Repo --> Service : OK
+deactivate Repo
+Service --> Form : OK
+deactivate Service
+Form -> Form : MostrarExito()
+Form -> Form : CargarJuegos()
+deactivate Form
+
+== Agregar Pregunta ==
+Usuario -> Form : Clic "Agregar Pregunta"
+activate Form
+Form -> Form : new FrmPreguntaDetalle()
+participant "FrmPreguntaDetalle" as FormPregunta
+Form -> FormPregunta : ShowDialog()
+activate FormPregunta
+Usuario -> FormPregunta : Ingresa pregunta
+Usuario -> FormPregunta : Agrega opciones
+Usuario -> FormPregunta : Selecciona respuesta correcta
+Usuario -> FormPregunta : Clic "Aceptar"
+FormPregunta -> FormPregunta : ValidarPregunta()
+alt Validación exitosa
+  FormPregunta --> Form : DialogResult.OK + Pregunta
+  deactivate FormPregunta
+Form -> Form : Agregar pregunta a lista
+  Form -> Form : Actualizar ListBox
+  Form --> Usuario : Muestra pregunta agregada
+else Validación fallida
+  FormPregunta -> FormPregunta : MostrarError()
+  FormPregunta --> Usuario : Mensaje de error
+end
+deactivate Form
+
+@enduml

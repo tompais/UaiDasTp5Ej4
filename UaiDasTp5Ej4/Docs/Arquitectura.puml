@@ -1,0 +1,140 @@
+@startuml Arquitectura_ABM_Preguntados
+
+!define RECTANGLE class
+
+skinparam backgroundColor #FEFEFE
+skinparam roundcorner 15
+skinparam shadowing false
+
+' Estilos
+skinparam package {
+  BackgroundColor<<presentation>> #E3F2FD
+  BackgroundColor<<application>> #FFF3E0
+  BackgroundColor<<service>> #F3E5F5
+  BackgroundColor<<repository>> #E8F5E9
+  BackgroundColor<<context>> #FFF9C4
+  BackgroundColor<<abstraction>> #FFE0B2
+  BackgroundColor<<domain>> #FFEBEE
+  BorderColor #424242
+  FontSize 12
+}
+
+title Arquitectura de N Capas - ABM Juegos Preguntados
+
+' Capa de Presentación
+package "PRESENTATION LAYER\n(UaiDasTp5Ej4)" <<presentation>> {
+  [FrmJuegoABM\n- Lista de juegos\n- CRUD de juegos\n- Agregar preguntas] as FrmJuego
+  [FrmPreguntaDetalle\n- Crear pregunta\n- Agregar opciones\n- Validaciones] as FrmPregunta
+}
+
+' Capa de Aplicación
+package "APPLICATION LAYER\n(APP)" <<application>> {
+  [DependencyInjection\n- ConfigurarServicios()\n- ConfigurarServiciosConStreaming()\n- Registro de dependencias] as DI
+}
+
+' Helpers de UI
+package "UI HELPERS\n(UI)" <<presentation>> {
+  [MessageHelper\n- MostrarExito()\n- MostrarError()\n- Confirmar()] as MsgHelper
+  [DisplayExtensions\n- ToDisplayString()\n- Formateo de entidades] as Extensions
+}
+
+' Capa de Servicio
+package "SERVICE LAYER\n(SERV)" <<service>> {
+  [JuegoService\n- ObtenerTodosLosJuegos()\n- CrearJuego()\n- ActualizarJuego()\n- EliminarJuego()\n- ValidarJuego()] as JuegoServ
+}
+
+' Capa de Repositorio
+package "REPOSITORY LAYER\n(REPO)" <<repository>> {
+  [JuegoRepository\n- ObtenerTodos()\n- Agregar()\n- Actualizar()\n- Eliminar()\n- Guardar()\n- Caché en memoria] as JuegoRepo
+}
+
+' Capa de Contexto/Datos
+package "DATA CONTEXT LAYER\n(CONTEXT)" <<context>> {
+  [XmlLinqDataAccess\n- LINQ to XML (XDocument)\n- Para archivos pequeños/medianos] as XmlLinq
+  [XmlStreamDataAccess\n- XmlReader/XmlWriter\n- Para archivos grandes\n- Mejor rendimiento] as XmlStream
+}
+
+' Capa de Abstracción
+package "ABSTRACTION LAYER\n(ABS)" <<abstraction>> {
+  interface IJuegoService
+  interface IJuegoRepository
+  interface IXmlDataAccess
+}
+
+' Capa de Dominio
+package "DOMAIN LAYER\n(DOM)" <<domain>> {
+  [Juego\n- Id, Nombre\n- Descripcion\n- FechaCreacion\n- CantidadPreguntas\n- Preguntas] as Juego
+  [Pregunta\n- Id, Texto\n- Categoria\n- Dificultad\n- Opciones\n- RespuestaCorrectaId] as Pregunta
+  [Opcion\n- Id, Texto] as Opcion
+}
+
+' Archivo XML
+database "Archivo XML\n(PreguntadosJuegos.xml)" as XML
+
+' Relaciones entre capas
+FrmJuego --> DI : usa
+FrmJuego --> IJuegoService : depende
+FrmJuego --> MsgHelper : usa
+FrmPregunta --> MsgHelper : usa
+
+DI ..> JuegoServ : registra
+DI ..> JuegoRepo : registra
+DI ..> XmlLinq : registra
+DI ..> XmlStream : registra (alternativa)
+
+JuegoServ ..|> IJuegoService : implementa
+JuegoServ --> IJuegoRepository : depende
+
+JuegoRepo ..|> IJuegoRepository : implementa
+JuegoRepo --> IXmlDataAccess : depende
+
+XmlLinq ..|> IXmlDataAccess : implementa
+XmlStream ..|> IXmlDataAccess : implementa
+
+XmlLinq --> XML : lee/escribe
+XmlStream --> XML : lee/escribe
+
+' Dependencias con dominio
+IJuegoService --> Juego : usa
+IJuegoRepository --> Juego : usa
+IXmlDataAccess --> Juego : usa
+Juego *-- Pregunta : contiene
+Pregunta *-- Opcion : contiene
+
+' Notas
+note right of DI
+  **Dependency Injection**
+  - Configura servicios
+  - Invierte dependencias
+  - Facilita testing
+end note
+
+note bottom of XmlLinq
+  **LINQ to XML (por defecto)**
+  - Código más limpio
+  - Fácil de usar
+  - Para archivos < 100MB
+end note
+
+note bottom of XmlStream
+  **XmlReader/Writer (alternativa)**
+  - Mayor rendimiento
+  - Menor memoria
+  - Para archivos > 100MB
+end note
+
+note left of JuegoRepo
+  **Repository Pattern**
+  - Caché en memoria
+  - Abstrae persistencia
+  - IDs automáticos
+end note
+
+note bottom of Juego
+  **Entidades del Dominio**
+  - Sin dependencias
+  - POCO (Plain Old CLR Objects)
+  - Representan el negocio
+end note
+
+@enduml

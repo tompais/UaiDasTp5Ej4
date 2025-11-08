@@ -1,0 +1,29 @@
+<!--
+  DTD para el archivo XML de Juegos de Preguntados
+  Define la estructura para almacenar juegos con sus preguntas y opciones
+-->
+
+<!ELEMENT Juegos (Juego*)>
+<!ELEMENT Juego (Nombre, Descripcion, FechaCreacion, CantidadPreguntas, Preguntas)>
+<!ATTLIST Juego
+  Id CDATA #REQUIRED>
+
+<!ELEMENT Nombre (#PCDATA)>
+<!ELEMENT Descripcion (#PCDATA)>
+<!ELEMENT FechaCreacion (#PCDATA)>
+<!ELEMENT CantidadPreguntas (#PCDATA)>
+
+<!ELEMENT Preguntas (Pregunta*)>
+<!ELEMENT Pregunta (Texto, Categoria, Dificultad, RespuestaCorrectaId, Opciones)>
+<!ATTLIST Pregunta
+  Id CDATA #REQUIRED>
+
+<!ELEMENT Texto (#PCDATA)>
+<!ELEMENT Categoria (#PCDATA)>
+<!ELEMENT Dificultad (#PCDATA)>
+<!ELEMENT RespuestaCorrectaId (#PCDATA)>
+
+<!ELEMENT Opciones (Opcion+)>
+<!ELEMENT Opcion (Texto)>
+<!ATTLIST Opcion
+  Id CDATA #REQUIRED>

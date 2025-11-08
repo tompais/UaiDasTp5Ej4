@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Juegos SYSTEM "Juegos.dtd">
+<Juegos>
+  <Juego Id="1">
+ <Nombre>Juego de Cultura General</Nombre>
+    <Descripcion>Un juego variado con preguntas de diferentes categorías para poner a prueba tus conocimientos</Descripcion>
+    <FechaCreacion>2025-01-15</FechaCreacion>
+    <CantidadPreguntas>3</CantidadPreguntas>
+    <Preguntas>
+      <Pregunta Id="1">
+  <Texto>¿Cuál es la capital de Francia?</Texto>
+    <Categoria>Geografia</Categoria>
+     <Dificultad>Fácil</Dificultad>
+        <RespuestaCorrectaId>1</RespuestaCorrectaId>
+      <Opciones>
+       <Opcion Id="1">
+            <Texto>París</Texto>
+          </Opcion>
+          <Opcion Id="2">
+            <Texto>Londres</Texto>
+   </Opcion>
+          <Opcion Id="3">
+      <Texto>Madrid</Texto>
+          </Opcion>
+          <Opcion Id="4">
+   <Texto>Roma</Texto>
+          </Opcion>
+      </Opciones>
+      </Pregunta>
+  <Pregunta Id="2">
+        <Texto>¿En qué año llegó el hombre a la Luna?</Texto>
+        <Categoria>Historia</Categoria>
+        <Dificultad>Media</Dificultad>
+        <RespuestaCorrectaId>2</RespuestaCorrectaId>
+        <Opciones>
+          <Opcion Id="1">
+         <Texto>1967</Texto>
+          </Opcion>
+          <Opcion Id="2">
+ <Texto>1969</Texto>
+        </Opcion>
+          <Opcion Id="3">
+      <Texto>1971</Texto>
+          </Opcion>
+          <Opcion Id="4">
+       <Texto>1973</Texto>
+          </Opcion>
+ </Opciones>
+      </Pregunta>
+      <Pregunta Id="3">
+        <Texto>¿Cuál es el símbolo químico del oro?</Texto>
+     <Categoria>Ciencia</Categoria>
+        <Dificultad>Media</Dificultad>
+        <RespuestaCorrectaId>3</RespuestaCorrectaId>
+        <Opciones>
+     <Opcion Id="1">
+      <Texto>Or</Texto>
+          </Opcion>
+      <Opcion Id="2">
+  <Texto>Go</Texto>
+          </Opcion>
+ <Opcion Id="3">
+       <Texto>Au</Texto>
+        </Opcion>
+          <Opcion Id="4">
+         <Texto>Ag</Texto>
+  </Opcion>
+     </Opciones>
+      </Pregunta>
+    </Preguntas>
+  </Juego>
+  <Juego Id="2">
+<Nombre>Juego de Deportes</Nombre>
+    <Descripcion>Preguntas sobre deportes, atletas y competiciones</Descripcion>
+    <FechaCreacion>2025-01-16</FechaCreacion>
+    <CantidadPreguntas>2</CantidadPreguntas>
+    <Preguntas>
+      <Pregunta Id="1">
+    <Texto>¿Cuántos jugadores hay en un equipo de fútbol?</Texto>
+        <Categoria>Deportes</Categoria>
+     <Dificultad>Fácil</Dificultad>
+      <RespuestaCorrectaId>2</RespuestaCorrectaId>
+        <Opciones>
+          <Opcion Id="1">
+       <Texto>10</Texto>
+     </Opcion>
+          <Opcion Id="2">
+  <Texto>11</Texto>
+     </Opcion>
+       <Opcion Id="3">
+<Texto>12</Texto>
+   </Opcion>
+        </Opciones>
+      </Pregunta>
+      <Pregunta Id="2">
+        <Texto>¿Quién ganó el Mundial de Fútbol 2022?</Texto>
+    <Categoria>Deportes</Categoria>
+        <Dificultad>Fácil</Dificultad>
+        <RespuestaCorrectaId>1</RespuestaCorrectaId>
+        <Opciones>
+          <Opcion Id="1">
+     <Texto>Argentina</Texto>
+          </Opcion>
+  <Opcion Id="2">
+  <Texto>Francia</Texto>
+          </Opcion>
+      <Opcion Id="3">
+  <Texto>Brasil</Texto>
+          </Opcion>
+       <Opcion Id="4">
+          <Texto>Alemania</Texto>
+      </Opcion>
+        </Opciones>
+      </Pregunta>
+    </Preguntas>
+  </Juego>
+</Juegos>

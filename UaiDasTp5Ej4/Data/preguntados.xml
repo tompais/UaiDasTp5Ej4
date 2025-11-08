@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE preguntados SYSTEM "preguntados.dtd">
+
+<preguntados>
+    <!-- Categoría: Historia -->
+    <pregunta id="1">
+        <categoria>Historia</categoria>
+        <enunciado>¿En qué año comenzó la Segunda Guerra Mundial?</enunciado>
+        <opciones>
+            <opcion indice="0">1936</opcion>
+            <opcion indice="1">1939</opcion>
+            <opcion indice="2">1941</opcion>
+            <opcion indice="3">1945</opcion>
+        </opciones>
+        <respuesta_correcta>1</respuesta_correcta>
+        <dificultad>Media</dificultad>
+        <fecha_creacion>2025-11-08</fecha_creacion>
+        <estado>Activa</estado>
+        <autor>Sistema</autor>
+    </pregunta>
+
+    <pregunta id="2">
+        <categoria>Historia</categoria>
+        <enunciado>¿Quién fue el primer presidente de Argentina?</enunciado>
+        <opciones>
+            <opcion indice="0">Bernardino Rivadavia</opcion>
+            <opcion indice="1">Juan Manuel de Rosas</opcion>
+            <opcion indice="2">Bartolomé Mitre</opcion>
+            <opcion indice="3">Domingo Faustino Sarmiento</opcion>
+        </opciones>
+        <respuesta_correcta>0</respuesta_correcta>
+        <dificultad>Media</dificultad>
+        <fecha_creacion>2025-11-08</fecha_creacion>
+        <estado>Activa</estado>
+        <autor>Sistema</autor>
+    </pregunta>
+
+    <!-- Categoría: Geografía -->
+    <pregunta id="3">
+        <categoria>Geografía</categoria>
+        <enunciado>¿Cuál es la capital de Australia?</enunciado>
+        <opciones>
+            <opcion indice="0">Sídney</opcion>
+            <opcion indice="1">Melbourne</opcion>
+            <opcion indice="2">Canberra</opcion>
+            <opcion indice="3">Brisbane</opcion>
+        </opciones>
+        <respuesta_correcta>2</respuesta_correcta>
+        <dificultad>Difícil</dificultad>
+        <fecha_creacion>2025-11-08</fecha_creacion>
+        <estado>Activa</estado>
+        <autor>Sistema</autor>
+    </pregunta>
+
+    <pregunta id="4">
+        <categoria>Geografía</categoria>
+        <enunciado>¿Qué río es el más largo del mundo?</enunciado>
+        <opciones>
+            <opcion indice="0">Nilo</opcion>
+            <opcion indice="1">Amazonas</opcion>
+            <opcion indice="2">Yangtsé</opcion>
+            <opcion indice="3">Misisipi</opcion>
+        </opciones>
+        <respuesta_correcta>0</respuesta_correcta>
+        <dificultad>Media</dificultad>
+        <fecha_creacion>2025-11-08</fecha_creacion>
+        <estado>Activa</estado>
+        <autor>Sistema</autor>
+    </pregunta>
+
+    <!-- Categoría: Ciencia -->
+    <pregunta id="5">
+        <categoria>Ciencia</categoria>
+        <enunciado>¿Cuál es el símbolo químico del oro?</enunciado>
+        <opciones>
+            <opcion indice="0">Go</opcion>
+            <opcion indice="1">Au</opcion>
+            <opcion indice="2">Or</opcion>
+            <opcion indice="3">Gd</opcion>
+        </opciones>
+        <respuesta_correcta>1</respuesta_correcta>
+        <dificultad>Fácil</dificultad>
+        <fecha_creacion>2025-11-08</fecha_creacion>
+        <estado>Activa</estado>
+        <autor>Sistema</autor>
+    </pregunta>
+
+    <pregunta id="6">
+        <categoria>Ciencia</categoria>
+        <enunciado>¿Cuántos huesos tiene el cuerpo humano adulto?</enunciado>
+        <opciones>
+            <opcion indice="0">186</opcion>
+            <opcion indice="1">206</opcion>
+            <opcion indice="2">226</opcion>
+            <opcion indice="3">246</opcion>
+        </opciones>
+        <respuesta_correcta>1</respuesta_correcta>
+        <dificultad>Media</dificultad>
+        <fecha_creacion>2025-11-08</fecha_creacion>
+        <estado>Activa</estado>
+        <autor>Sistema</autor>
+    </pregunta>
+
+    <!-- Categoría: Entretenimiento -->
+    <pregunta id="7">
+        <categoria>Entretenimiento</categoria>
+        <enunciado>¿Quién dirigió la película "Titanic"?</enunciado>
+        <opciones>
+            <opcion indice="0">Steven Spielberg</opcion>
+            <opcion indice="1">James Cameron</opcion>
+            <opcion indice="2">Martin Scorsese</opcion>
+            <opcion indice="3">Christopher Nolan</opcion>
+        </opciones>
+        <respuesta_correcta>1</respuesta_correcta>
+        <dificultad>Fácil</dificultad>
+        <fecha_creacion>2025-11-08</fecha_creacion>
+        <estado>Activa</estado>
+        <autor>Sistema</autor>
+    </pregunta>
+
+    <pregunta id="8">
+        <categoria>Entretenimiento</categoria>
+        <enunciado>¿En qué año se estrenó la primera película de Harry Potter?</enunciado>
+        <opciones>
+            <opcion indice="0">1999</opcion>
+            <opcion indice="1">2000</opcion>
+            <opcion indice="2">2001</opcion>
+            <opcion indice="3">2002</opcion>
+        </opciones>
+        <respuesta_correcta>2</respuesta_correcta>
+        <dificultad>Media</dificultad>
+        <fecha_creacion>2025-11-08</fecha_creacion>
+        <estado>Activa</estado>
+        <autor>Sistema</autor>
+    </pregunta>
+
+    <!-- Categoría: Deportes -->
+    <pregunta id="9">
+        <categoria>Deportes</categoria>
+        <enunciado>¿Cuántos jugadores tiene un equipo de fútbol en el campo?</enunciado>
+        <opciones>
+            <opcion indice="0">9</opcion>
+            <opcion indice="1">10</opcion>
+            <opcion indice="2">11</opcion>
+            <opcion indice="3">12</opcion>
+        </opciones>
+        <respuesta_correcta>2</respuesta_correcta>
+        <dificultad>Fácil</dificultad>
+        <fecha_creacion>2025-11-08</fecha_creacion>
+        <estado>Activa</estado>
+        <autor>Sistema</autor>
+    </pregunta>
+
+    <pregunta id="10">
+        <categoria>Deportes</categoria>
+        <enunciado>¿Quién es el máximo goleador histórico de la selección argentina?</enunciado>
+        <opciones>
+            <opcion indice="0">Diego Maradona</opcion>
+            <opcion indice="1">Gabriel Batistuta</opcion>
+            <opcion indice="2">Sergio Agüero</opcion>
+            <opcion indice="3">Lionel Messi</opcion>
+        </opciones>
+        <respuesta_correcta>3</respuesta_correcta>
+        <dificultad>Fácil</dificultad>
+        <fecha_creacion>2025-11-08</fecha_creacion>
+        <estado>Activa</estado>
+        <autor>Sistema</autor>
+    </pregunta>
+
+    <!-- Categoría: Arte y Literatura -->
+    <pregunta id="11">
+        <categoria>Arte y Literatura</categoria>
+        <enunciado>¿Quién escribió "Cien años de soledad"?</enunciado>
+        <opciones>
+            <opcion indice="0">Jorge Luis Borges</opcion>
+            <opcion indice="1">Gabriel García Márquez</opcion>
+            <opcion indice="2">Mario Vargas Llosa</opcion>
+            <opcion indice="3">Pablo Neruda</opcion>
+        </opciones>
+        <respuesta_correcta>1</respuesta_correcta>
+        <dificultad>Media</dificultad>
+        <fecha_creacion>2025-11-08</fecha_creacion>
+        <estado>Activa</estado>
+        <autor>Sistema</autor>
+    </pregunta>
+
+    <pregunta id="12">
+        <categoria>Arte y Literatura</categoria>
+        <enunciado>¿Quién pintó "La noche estrellada"?</enunciado>
+        <opciones>
+            <opcion indice="0">Pablo Picasso</opcion>
+            <opcion indice="1">Claude Monet</opcion>
+            <opcion indice="2">Vincent van Gogh</opcion>
+            <opcion indice="3">Leonardo da Vinci</opcion>
+        </opciones>
+        <respuesta_correcta>2</respuesta_correcta>
+        <dificultad>Media</dificultad>
+        <fecha_creacion>2025-11-08</fecha_creacion>
+        <estado>Activa</estado>
+        <autor>Sistema</autor>
+    </pregunta>
+</preguntados>

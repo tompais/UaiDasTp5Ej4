@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+		<ProjectReference Include="..\ABS\ABS.csproj" />
+		<ProjectReference Include="..\DOM\DOM.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="FrmJuegoABM.cs">
+			<SubType>Form</SubType>
+		</Compile>
+		<Compile Update="FrmPreguntaDetalle.cs">
+			<SubType>Form</SubType>
+		</Compile>
+	</ItemGroup>
+
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+	</PropertyGroup>
+
+</Project>
